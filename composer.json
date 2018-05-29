@@ -1,0 +1,31 @@
+{
+    "name": "onecommunity/client",
+    "type": "library",
+    "description": "PHP client to access the One Community API.",
+    "keywords": [
+        "onecommunity",
+        "api"
+    ],
+    "homepage": "https://github.com/emolifeconnect/onecommunity-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jarno van Leeuwen",
+            "email": "jarno@onecommunity.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "OneCommunity\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "jarnovanleeuwen/jwtapi": "^0.1.0"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
