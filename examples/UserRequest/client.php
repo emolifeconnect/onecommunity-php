@@ -8,7 +8,7 @@ use OneCommunity\Exceptions\RequestException;
 use OneCommunity\Requests\UserRequest;
 
 $apiKey = "DRSt3jWF4YqRZSi6Z8xzSAtBpVTauJ6b";
-$userId = 42;
+$userId = 1;
 $projectName = "helloworld";
 
 $client = new Client($apiKey, $userId, $projectName);
@@ -19,7 +19,15 @@ try {
 
     $response = $client->send($request);
 
-    print 'Success: '.$response->getData();
+    if ($response->isSuccessful()) {
+        print '<pre>';
+        print_r($response->getData());
+        print '</pre>';
+    } else {
+        var_dump($response->getData());
+    }
 } catch (RequestException $exception) {
-    print 'Error: '.$exception->getMessage();
+    http_response_code(400);
+    
+    print $exception->getMessage();
 }
