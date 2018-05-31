@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "^7.1",
-        "jarnovanleeuwen/jwtapi": "^0.2.0"
+        "jarnovanleeuwen/jwtapi": "^0.3.0"
     },
     "config": {
         "preferred-install": "dist",
