@@ -9,7 +9,7 @@ Using [Composer](https://getcomposer.org/):
 
 `composer require onecommunity/client`
 
-Contact us with your *public* key to receive your API key.
+Contact us with your [public key](#generating-the-publicprivate-key-pair) to receive your API key.
 
 ## Usage
 
@@ -26,7 +26,7 @@ $client = new Client($apiKey, $userId, $projectName);
 // Load private key from file..
 $client->loadPrivateKey("private_rsa.pem");
 // ..or string
-$client->setPrivateKey($publicKey);
+$client->setPrivateKey($privateKey);
 ```
 
 ### Sending Requests
