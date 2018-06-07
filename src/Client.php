@@ -10,7 +10,7 @@ use OneCommunity\Exceptions\RequestException;
 class Client extends BaseClient
 {
     const API_URL = 'https://api.onecommunity.nl/v1/';
-    const VERSION = '0.3.0';
+    const VERSION = '0.4.0';
 
     public function __construct(string $apiKey, int $userId, string $projectName)
     {
