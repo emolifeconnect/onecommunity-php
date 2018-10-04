@@ -34,10 +34,6 @@ try {
         ]
     ]);
 
-    $subs = json_decode('{"lottery":{"Name":"Lot of Happiness","Description":"*loterij*","Price":1},"incasso":{"Tickets":"ZZ912530, ZZ867280, ZZ798350, ZZ798014, ZZ736707","Amount":5},"extra":{"hello":"world"}}', true);
-
-    $request->setSubstitutions($subs);
-
     $response = $client->send($request);
 
     if ($response->isSuccessful()) {
