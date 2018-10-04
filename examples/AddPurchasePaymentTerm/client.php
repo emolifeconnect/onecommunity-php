@@ -1,11 +1,12 @@
 <?php
-namespace Examples\SaveVariable;
+namespace Examples\AddPurchasePaymentTerm;
 
 require_once "../../vendor/autoload.php";
 
+use DateTimeImmutable;
 use OneCommunity\Client;
 use OneCommunity\Exceptions\RequestException;
-use OneCommunity\Requests\SaveVariableRequest;
+use OneCommunity\Requests\AddPurchasePaymentTermRequest;
 
 $apiKey = "DRSt3jWF4YqRZSi6Z8xzSAtBpVTauJ6b";
 $userId = 1;
@@ -14,20 +15,15 @@ $projectName = "yourproject";
 $client = new Client($apiKey, $userId, $projectName);
 $client->loadPrivateKey("../private_rsa.pem");
 
-$modelId = 5; // Account ID
-$variableKeyId = 2; // Variable Key ID (e.g. for T-shirt size)
-$variableValueId = 6; // Variable Value ID
-
-$hasOptions = true;
+$purchaseId = 1;
+$today = new DateTimeImmutable;
 
 try {
-    $request = new SaveVariableRequest($modelId, $variableKeyId);
+    $request = new AddPurchasePaymentTermRequest($purchaseId);
 
-    if ($hasOptions) {
-        $request->setVariableValueId($variableValueId);
-    } else {
-        $request->setCustomValue("XXL");
-    }
+    $request->setTitle('Monthly subscription');
+    $request->setAmount(500);
+    $request->setCollectDate($today);
 
     $response = $client->send($request);
 

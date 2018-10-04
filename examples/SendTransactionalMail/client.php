@@ -1,5 +1,5 @@
 <?php
-namespace Examples\GetUser;
+namespace Examples\SendTransactionalMail;
 
 require_once "../../vendor/autoload.php";
 
@@ -14,8 +14,8 @@ $projectName = "yourproject";
 $client = new Client($apiKey, $userId, $projectName);
 $client->loadPrivateKey("../private_rsa.pem");
 
-$accountId = 1; // Recipient
-$transactionalMailId = 1; // Mail
+$accountId = 5; // Recipient
+$transactionalMailId = 17; // Mail
 
 try {
     $request = new SendTransactionalMailRequest($accountId, $transactionalMailId);
@@ -34,6 +34,10 @@ try {
         ]
     ]);
 
+    $subs = json_decode('{"lottery":{"Name":"Lot of Happiness","Description":"*loterij*","Price":1},"incasso":{"Tickets":"ZZ912530, ZZ867280, ZZ798350, ZZ798014, ZZ736707","Amount":5},"extra":{"hello":"world"}}', true);
+
+    $request->setSubstitutions($subs);
+
     $response = $client->send($request);
 
     if ($response->isSuccessful()) {
@@ -41,6 +45,7 @@ try {
         print_r($response->getData());
         print '</pre>';
     } else {
+        var_dump($response);
         var_dump($response->getData());
     }
 } catch (RequestException $exception) {
