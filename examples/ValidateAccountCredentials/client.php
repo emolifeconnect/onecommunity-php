@@ -1,11 +1,11 @@
 <?php
-namespace Examples\SaveVariable;
+namespace Examples\ValidateAccountCredentials;
 
 require_once "../../vendor/autoload.php";
 
 use OneCommunity\Client;
 use OneCommunity\Exceptions\RequestException;
-use OneCommunity\Requests\SaveVariableRequest;
+use OneCommunity\Requests\ValidateAccountCredentialsRequest;
 
 $apiKey = "DRSt3jWF4YqRZSi6Z8xzSAtBpVTauJ6b";
 $userId = 1;
@@ -14,20 +14,13 @@ $projectName = "yourproject";
 $client = new Client($apiKey, $userId, $projectName);
 $client->loadPrivateKey("../private_rsa.pem");
 
-$modelId = 5; // Account ID
-$variableKeyId = 2; // Variable Key ID (e.g. for T-shirt size)
-$variableValueId = 6; // Variable Value ID
-
-$hasOptions = true;
+$username = 'foo';
+$password = 'bar';
 
 try {
-    $request = new SaveVariableRequest($modelId, $variableKeyId);
-
-    if ($hasOptions) {
-        $request->setVariableValueId($variableValueId);
-    } else {
-        $request->setCustomValue("XXL");
-    }
+    $request = new ValidateAccountCredentialsRequest;
+    $request->setUsername($username);
+    $request->setPassword($password);
 
     $response = $client->send($request);
 
