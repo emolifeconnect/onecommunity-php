@@ -1,5 +1,5 @@
 <?php
-namespace Examples\GetUser;
+namespace Examples\User;
 
 require_once "../../vendor/autoload.php";
 
@@ -19,15 +19,9 @@ try {
 
     $response = $client->send($request);
 
-    if ($response->isSuccessful()) {
-        print '<pre>';
-        print_r($response->getData());
-        print '</pre>';
-    } else {
-        var_dump($response->getData());
-    }
+    dump($response->getData());
 } catch (RequestException $exception) {
     http_response_code(400);
-    
-    print $exception->getMessage();
+
+    dump($exception->getMessage());
 }
