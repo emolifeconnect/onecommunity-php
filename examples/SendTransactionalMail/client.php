@@ -1,5 +1,5 @@
 <?php
-namespace Examples\GetUser;
+namespace Examples\SendTransactionalMail;
 
 require_once "../../vendor/autoload.php";
 
@@ -14,8 +14,8 @@ $projectName = "yourproject";
 $client = new Client($apiKey, $userId, $projectName);
 $client->loadPrivateKey("../private_rsa.pem");
 
-$accountId = 1; // Recipient
-$transactionalMailId = 1; // Mail
+$accountId = 5; // Recipient
+$transactionalMailId = 17; // Mail
 
 try {
     $request = new SendTransactionalMailRequest($accountId, $transactionalMailId);
@@ -41,6 +41,7 @@ try {
         print_r($response->getData());
         print '</pre>';
     } else {
+        var_dump($response);
         var_dump($response->getData());
     }
 } catch (RequestException $exception) {

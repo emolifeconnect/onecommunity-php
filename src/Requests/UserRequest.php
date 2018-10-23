@@ -1,8 +1,6 @@
 <?php
 namespace OneCommunity\Requests;
 
-use JwtApi\Client\Request;
-
 class UserRequest extends Request
 {
     public function getMethod(): string
