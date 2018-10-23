@@ -105,7 +105,7 @@ The validation errors of a `422 Unprocessable Entity` response are structured as
 ## Security
 The API is based on [JWT API](https://github.com/jarnovanleeuwen/jwtapi), an efficient and secure machine-to-machine API using JSON Web Tokens and asymmetric request signing. Advantages of this approach include:
 
-- Requests and responses are send over a secure channel.
+- Requests and responses are sent over a secure channel.
 - Requests can only be signed by the API consumer (providing non-repudiation).
 - Requests are only valid for a short time (avoiding replay attacks).
 
