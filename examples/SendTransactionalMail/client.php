@@ -35,7 +35,7 @@ try {
     ]);
 
     $response = $client->send($request);
-
+  
     dump($response->getData());
 } catch (RequestException $exception) {
     http_response_code(400);
