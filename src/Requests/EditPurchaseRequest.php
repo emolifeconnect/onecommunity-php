@@ -31,14 +31,14 @@ class EditPurchaseRequest extends Request
         return $this->data;
     }
 
-    public function setPurchaseId(int $id): self
+    public function setId(int $id): self
     {
         $this->purchaseId = $id;
 
         return $this;
     }
 
-    public function getPurchaseId(): int
+    public function getId(): int
     {
         return $this->purchaseId;
     }
