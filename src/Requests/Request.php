@@ -11,11 +11,30 @@ abstract class Request extends BaseRequest
     protected $data = [];
 
     /**
-     * @var mixed $data
+     * @param mixed $value
      */
-    public function setData(string $key, $data): self
+    public function setData(string $key, $value): self
     {
-        $this->data[$key] = $data;
+        if ($key === null) {
+            $this->data = $value;
+
+            return $this;
+        }
+
+        $data = &$this->data;
+        $keys = explode('.', $key);
+
+        while (count($keys) > 1) {
+            $key = array_shift($keys);
+
+            if (!isset($data[$key]) || !is_array($data[$key])) {
+                $data[$key] = [];
+            }
+
+            $data = &$data[$key];
+        }
+
+        $data[array_shift($keys)] = $value;
 
         return $this;
     }
@@ -23,8 +42,25 @@ abstract class Request extends BaseRequest
     /**
      * @return mixed
      */
-    public function getData(string $key)
+    public function getData(string $key = null)
     {
-        return $this->data[$key] ?? null;
+        if ($key === null) {
+            return $this->data;
+        }
+
+        $data = $this->data;
+        $keys = explode('.', $key);
+
+        while (count($keys) > 0) {
+            $key = array_shift($keys);
+
+            if (isset($data[$key]) && (is_array($data[$key]) || count($keys) == 0)) {
+                $data = $data[$key];
+            } else {
+                $data = null;
+            }
+        }
+
+        return $data;
     }
 }
