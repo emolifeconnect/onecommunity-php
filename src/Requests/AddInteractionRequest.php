@@ -23,32 +23,32 @@ class AddInteractionRequest extends Request
 
     public function setAccountId(int $accountId): self
     {
-        return $this->setData('account_id', $accountId);
+        return $this->setData('account.id', $accountId);
     }
 
     public function getAccountId(): int
     {
-        return $this->getData('account_id');
+        return $this->getData('account.id');
     }
 
     public function setSubjectId(int $subjectId): self
     {
-        return $this->setData('subject_id', $subjectId);
+        return $this->setData('subject.id', $subjectId);
     }
 
     public function getSubjectId(): int
     {
-        return $this->getData('subject_id');
+        return $this->getData('subject.id');
     }
 
     public function setSubjectTitle(string $subjectTitle): self
     {
-        return $this->setData('subject_title', $subjectTitle);
+        return $this->setData('subject.title', $subjectTitle);
     }
 
     public function getSubjectTitle(): string
     {
-        return $this->getData('subject_title');
+        return $this->getData('subject.title');
     }
 
     public function setDescription(string $description): self
@@ -89,11 +89,11 @@ class AddInteractionRequest extends Request
 
     public function setAssignedUserId(int $assignedUserId): self
     {
-        return $this->setData('assigned_user_id', $assignedUserId);
+        return $this->setData('assigned_user.id', $assignedUserId);
     }
 
     public function getAssignedUserId(): int
     {
-        return $this->getData('assigned_user_id');
+        return $this->getData('assigned_user.id');
     }
 }
