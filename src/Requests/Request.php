@@ -15,12 +15,6 @@ abstract class Request extends BaseRequest
      */
     public function setData(string $key, $value): self
     {
-        if ($key === null) {
-            $this->data = $value;
-
-            return $this;
-        }
-
         $data = &$this->data;
         $keys = explode('.', $key);
 
