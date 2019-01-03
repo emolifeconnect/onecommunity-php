@@ -3,7 +3,6 @@ namespace Examples\AddInteraction;
 
 require_once "../../vendor/autoload.php";
 
-use DateTimeImmutable;
 use OneCommunity\Client;
 use OneCommunity\Exceptions\RequestException;
 use OneCommunity\Requests\DeleteInteractionRequest;
