@@ -1,5 +1,5 @@
 <?php
-namespace Examples\AddInteraction;
+namespace Examples\DeleteInteraction;
 
 require_once "../../vendor/autoload.php";
 
