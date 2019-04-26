@@ -3,6 +3,9 @@ namespace OneCommunity\Requests;
 
 abstract class CollectionRequest extends Request
 {
+    const SORT_ASCENDING = 'asc';
+    const SORT_DESCENDING = 'desc';
+
     public function getMethod(): string
     {
         return 'GET';
@@ -18,7 +21,7 @@ abstract class CollectionRequest extends Request
         return $this->setData('page', $page);
     }
 
-    public function getPage(): int
+    public function getPage(): ?int
     {
         return $this->getData('page');
     }
@@ -28,9 +31,49 @@ abstract class CollectionRequest extends Request
         return $this->setData('per_page', $perPage);
     }
 
-    public function getPerPage(): int
+    public function getPerPage(): ?int
     {
         return $this->getData('per_page');
+    }
+
+    public function setSearch(string $search): self
+    {
+        return $this->setData('search', $search);
+    }
+
+    public function getSearch(): ?string
+    {
+        return $this->getData('search');
+    }
+
+    public function setAppends(array $appendables): self
+    {
+        return $this->setData('appends', $appendables);
+    }
+
+    public function getAppends(): ?array
+    {
+        return $this->getData('appends');
+    }
+
+    public function setWith(array $loadables): self
+    {
+        return $this->setData('with', $loadables);
+    }
+
+    public function getWith(): ?array
+    {
+        return $this->getData('with');
+    }
+
+    public function setSort(string $attribute, string $direction = self::SORT_ASCENDING): self
+    {
+        return $this->setData('sort', [$attribute => $direction]);
+    }
+
+    public function getSort(): ?array
+    {
+        return $this->getData('sort');
     }
 
     public function setFilters(array $filters): self
@@ -38,7 +81,7 @@ abstract class CollectionRequest extends Request
         return $this->setData('filters', $filters);
     }
 
-    public function getFilters(): array
+    public function getFilters(): ?array
     {
         return $this->getData('filters');
     }
