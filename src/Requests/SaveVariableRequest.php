@@ -24,11 +24,6 @@ class SaveVariableRequest extends Request
     protected $variableValueId;
 
     /**
-     * @var array
-     */
-    protected $substitutions;
-
-    /**
      * @param int|float|string|null $customValue
      */
     public function __construct(int $modelId, int $variableKeyId, int $variableValueId = null, $customValue = null)

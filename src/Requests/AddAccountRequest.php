@@ -51,6 +51,17 @@ class AddAccountRequest extends Request
         return $this->setData('groups', $groupData);
     }
 
+    public function setBankAccount(string $iban, string $accountHolder, string $bic = null): self
+    {
+        return $this->setData('bank_accounts', [
+            [
+                'iban' => $iban,
+                'bic' => $bic,
+                'account_holder' => $accountHolder,
+            ],
+        ]);
+    }
+
     public function setTitle(string $title): self
     {
         return $this->setData('title', $title);

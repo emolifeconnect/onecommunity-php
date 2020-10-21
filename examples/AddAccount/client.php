@@ -32,7 +32,9 @@ try {
         ->setLastName('Egmond')
         ->setDateOfBirth(new DateTimeImmutable('1993-03-24'))
         ->setEmail('janvanegmond@onecommunity.nl')
-        ->setSubscribeToMails(true);
+        ->setSubscribeToMails(true)
+        ->setPhoneWork('+31883665433')
+        ->setBankAccount('NL02ABNA0123456789', 'J. van Egmond');
 
     $response = $client->send($request);
 
