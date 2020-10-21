@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added `AddAccountRequest`.
 - Added `AddOrderRequest`.
 
+## [0.8.0] - 2020-03-13
+### Added
+- Added `SyncFormRequest`, `SyncFormEntryRequest` and `SyncAccount`.
+
+## [0.7.0] - 2019-07-22
+### Added
+- Added `BankAccountsRequest`, `EditPurchasePaymentTermRequest`, `PurchasePaymentTermsRequest` and `PurchasesRequest`.
+- Added support for searching, sorting, loading and appending to `CollectionRequest`.
+
 ## [0.6.0] - 2019-01-03
 ### Added
 - Added `DeleteInteractionRequest`.

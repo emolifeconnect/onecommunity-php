@@ -1,10 +1,10 @@
 <?php
 namespace OneCommunity\Requests;
 
-class InteractionsRequest extends CollectionRequest
+class PurchasesRequest extends CollectionRequest
 {
     public function getUri(): string
     {
-        return 'interactions';
+        return 'purchases';
     }
 }
