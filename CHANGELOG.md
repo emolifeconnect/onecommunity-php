@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.10.0] - 2020-12-28
+### Changed
+- Support PHP 8.
+
 ## [0.9.0] - 2020-10-28
 ### Added
 - Added `AddAccountRequest`.
