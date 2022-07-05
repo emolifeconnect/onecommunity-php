@@ -28,12 +28,12 @@ abstract class CollectionRequest extends Request
 
     public function setPerPage(int $perPage): self
     {
-        return $this->setData('per_page', $perPage);
+        return $this->setData('perPage', $perPage);
     }
 
     public function getPerPage(): ?int
     {
-        return $this->getData('per_page');
+        return $this->getData('perPage');
     }
 
     public function setSearch(string $search): self
